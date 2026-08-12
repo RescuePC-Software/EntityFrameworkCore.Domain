@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/.github/">
+    <File Path=".github/publish.ps1" />
+  </Folder>
+  <Folder Name="/.github/wotkflows/">
+    <File Path=".github/workflows/publish.yml" />
+  </Folder>
+  <Folder Name="/Source/">
+    <Project Path="Source/RescuePC.Software.EntityFrameworkCore.Domain/RescuePC.Software.EntityFrameworkCore.Domain.csproj" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="Tests/RescuePC.Software.EntityFrameworkCore.Domain.UnitTests/RescuePC.Software.EntityFrameworkCore.Domain.UnitTests.csproj" />
+  </Folder>
+</Solution>
