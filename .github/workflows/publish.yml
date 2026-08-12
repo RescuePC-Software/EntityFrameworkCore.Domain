@@ -23,7 +23,7 @@ jobs:
           dotnet-version: '10.x'
           source-url: https://nuget.pkg.github.com/RescuePC-Software/index.json
         env:
-          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_PAT }}
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Extract version from tag
         id: version
@@ -42,4 +42,4 @@ jobs:
         run: dotnet pack Source/RescuePC.Software.EntityFrameworkCore.Domain/RescuePC.Software.EntityFrameworkCore.Domain.csproj --configuration Release --no-build --output ./artifacts /p:Version=${{ steps.version.outputs.VERSION }}
 
       - name: Push to GitHub Packages
-        run: dotnet nuget push ./artifacts/*.nupkg --source "https://nuget.pkg.github.com/RescuePC-Software/index.json" --api-key ${{ secrets.NUGET_PAT }} --skip-duplicate
+        run: dotnet nuget push ./artifacts/*.nupkg --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
