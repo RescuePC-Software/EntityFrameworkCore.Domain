@@ -11,6 +11,7 @@ jobs:
 
     permissions:
       packages: write
+      contents: read
 
     steps:
       - name: Checkout
@@ -20,6 +21,9 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '10.x'
+          source-url: https://nuget.pkg.github.com/RescuePC-Software/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Extract version from tag
         id: version
@@ -30,6 +34,9 @@ jobs:
 
       - name: Build
         run: dotnet build --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test --configuration Release --no-build
 
       - name: Pack
         run: dotnet pack Source/RescuePC.Software.EntityFrameworkCore.Domain/RescuePC.Software.EntityFrameworkCore.Domain.csproj --configuration Release --no-build --output ./artifacts /p:Version=${{ steps.version.outputs.VERSION }}
