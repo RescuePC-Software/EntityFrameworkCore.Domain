@@ -1,4 +1,8 @@
-﻿namespace RescuePC.Software.EntityFrameworkCore.Domain.Interceptors;
+﻿using Microsoft.EntityFrameworkCore.Diagnostics;
+using RescuePC.Software.Domain;
+using RescuePC.Software.Domain.Event;
+
+namespace RescuePC.Software.EntityFrameworkCore.Domain.Interceptors;
 
 public class PublishEventsInterceptor : SaveChangesInterceptor
 {

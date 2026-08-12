@@ -9,4 +9,9 @@
     <Company>RescuePC Software</Company>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="RescuePC.Software.Domain" Version="10.0.0" />
+    <PackageReference Include="RescuePC.Software.EntityFrameworkCore" Version="10.0.0" />
+  </ItemGroup>
+
 </Project>
