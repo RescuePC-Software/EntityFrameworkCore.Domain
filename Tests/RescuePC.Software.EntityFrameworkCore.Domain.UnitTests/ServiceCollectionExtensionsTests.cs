@@ -14,7 +14,7 @@ public class ServiceCollectionExtensionsTests
         services.AddPublishEventsInterceptor();
 
         var descriptor = Assert.Single(services);
-        Assert.Equal(typeof(IInterceptor), descriptor.ServiceType);
+        Assert.Equal(typeof(PublishEventsInterceptor), descriptor.ServiceType);
         Assert.Equal(typeof(PublishEventsInterceptor), descriptor.ImplementationType);
     }
 
