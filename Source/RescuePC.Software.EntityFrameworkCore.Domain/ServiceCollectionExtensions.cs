@@ -8,7 +8,7 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddPublishEventsInterceptor(this IServiceCollection services)
     {
-        services.AddScoped<IInterceptor, PublishEventsInterceptor>();
+        services.AddScoped<PublishEventsInterceptor>();
         return services;
     }
 }
